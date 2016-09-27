@@ -4,13 +4,11 @@ var R = require('ramda')
 
 var $ = go.GraphObject.make;
 
-module.exports = function autoGraph (elementSelector, net) {
+module.exports = function autoGraph (domElementId, net) {
     "use strict";
 
-    console.log("ADD", elementSelector)
-
     var myDiagram =
-        $(go.Diagram, elementSelector,
+        $(go.Diagram, domElementId,
             { // automatically scale the diagram to fit the viewport's size
                 initialAutoScale: go.Diagram.Uniform,
                 // start everything in the middle of the viewport
@@ -65,6 +63,8 @@ module.exports = function autoGraph (elementSelector, net) {
 
     // parse net
     var n = new Mininet(net)
+
+    console.log(n)
 
     var is_place = function (id) { return /^pl.*$/.test(id) }
 

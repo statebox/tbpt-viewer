@@ -7,15 +7,32 @@
 
 <body>
 
-<div id='container'>loading</div>
-
-<div id="myDiagramDiv"
-     style="width:100%; height:650px; background-color: #DAE4E4;">
+<div id="net1"
+     style="float: left; width:50%; background-color: cadetblue; height:350px">
 </div>
 
+<div id="net2"
+     style="float:left; width:50%; background-color: lightblue; height:350px">
+</div>
+
+<div id='container'>loading</div>
+
+
 <script id='template' type='text/ractive'>
-    <pre>{{JSON.stringify(net)}}</pre>
+    <div id="net1data" style="float: left; width:50%">
+    <h4>Net</h4>
+        {{#net1}}
+            <code>{{(.[0]).join(' ')}}</code> → <code>{{(.[1]).join(' ')}}</code><br/>
+        {{/}}
+    </div>
+    <div id="net2data" style="float: left; width:50%">
+    <h4>It's dual</h4>
+        {{#net2}}
+            <code>{{(.[0]).join(' ')}}</code> → <code>{{(.[1]).join(' ')}}</code><br/>
+        {{/}}
+    </div>
 </script>
+
 
 <script src='vendor/ractive.min.js'></script>
 <script src='vendor/go.js'></script>
